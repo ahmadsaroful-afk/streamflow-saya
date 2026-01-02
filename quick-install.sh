@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 set -e
+
 export DEBIAN_FRONTEND=noninteractive
 
 APP_DIR="/root/streamflow-saya"
 REPO_URL="https://github.com/ahmadsaroful-afk/streamflow-saya.git"
 PORT="7575"
 
-
 echo "=== Streamflow Quick Install ==="
 
-# Update system
+# Update system (PAKAI -y + aman dari prompt)
 apt update -y
 apt upgrade -y
 
 # Tools
-apt install -y curl git nano openssl ca-certificates
+apt install -y curl git openssl ca-certificates
 
 # Node.js 18
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
@@ -46,8 +46,8 @@ pm2 delete streamflow >/dev/null 2>&1 || true
 pm2 start app.js --name streamflow
 pm2 save
 
-# Auto start on reboot
-pm2 startup systemd -u root --hp /root || true
+# Auto start on reboot (INI yang benar-benar bikin auto-run)
+pm2 startup systemd -u root --hp /root
 pm2 save
 
 # Firewall (kalau UFW ada)
