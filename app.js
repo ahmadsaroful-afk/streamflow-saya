@@ -113,7 +113,7 @@ app.use(session({
     dir: './db/',
     table: 'sessions'
   }),
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'streamflow_secret_default',
   resave: false,
   saveUninitialized: false,
   rolling: true,
