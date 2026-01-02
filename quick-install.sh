@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -e
+export DEBIAN_FRONTEND=noninteractive
 
 APP_DIR="/root/streamflow-saya"
 REPO_URL="https://github.com/ahmadsaroful-afk/streamflow-saya.git"
 PORT="7575"
+
 
 echo "=== Streamflow Quick Install ==="
 
