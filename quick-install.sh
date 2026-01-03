@@ -14,7 +14,7 @@ apt update -y
 apt upgrade -y
 
 # Tools
-apt install -y curl git openssl ca-certificates
+apt install -y curl git openssl ca-certificates ffmpeg
 
 # Node.js 18
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
